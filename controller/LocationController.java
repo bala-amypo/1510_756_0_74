@@ -14,14 +14,15 @@ import com.example.demo.service.LocationService;
 @RestController
 public class LocationController {
     @Autowired
-    LocationService locationService;
+    private LocationService locationService;
+
     @PostMapping("/addlocation")
-    public LocationEntity add(@RequestBody LocationEntity le){
-        return locationService.createLocation(le);
+    public LocationEntity add(@RequestBody LocationEntity le) {
+        return locationService.createlocation(le);
     }
-    @GetMapping("showlocation")
-    public List<LocationEntity> show(){
-        return locationService.getall();
+
+    @GetMapping("/showlocation")
+    public List<LocationEntity> show() {
+        return locationService.getalllocation();
     }
 }
-
